@@ -1,0 +1,227 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "swensonhe",
+    "description": "code challenge",
+    "version": "1.0.0"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/": {
+      "get": {
+        "tags": [],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/machines/": {
+      "get": {
+        "tags": [
+          "Machines"
+        ],
+        "description": "get a list of machines",
+        "parameters": [
+          {
+            "name": "waterLineCompatible",
+            "type": "boolean",
+            "in": "query"
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query"
+          },
+          {
+            "name": "limit",
+            "description": "default is 5",
+            "type": "integer",
+            "in": "query"
+          },
+          {
+            "name": "recommenedPods",
+            "description": "the simplest recommendation system, right now onjustly works if you also filter based on productType",
+            "type": "boolean",
+            "in": "query"
+          },
+          {
+            "name": "productType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Machines"
+        ],
+        "description": "add a new machine",
+        "parameters": [
+          {
+            "name": "machine",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Machine"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    },
+    "/pods/": {
+      "get": {
+        "tags": [
+          "Pods"
+        ],
+        "description": "get a list of pods",
+        "parameters": [
+          {
+            "name": "packSize",
+            "type": "integer",
+            "in": "query"
+          },
+          {
+            "name": "page",
+            "type": "integer",
+            "in": "query"
+          },
+          {
+            "name": "limit",
+            "description": "default is 5",
+            "type": "integer",
+            "in": "query"
+          },
+          {
+            "name": "productType",
+            "in": "query",
+            "type": "string"
+          },
+          {
+            "name": "coffeeFlavor",
+            "in": "query",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Pods"
+        ],
+        "description": "add a new pod",
+        "parameters": [
+          {
+            "name": "pod",
+            "in": "body",
+            "schema": {
+              "$ref": "#/definitions/Pod"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Created",
+            "schema": {
+              "$ref": "#/definitions/Response"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Machine": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": "|F1\\D"
+        },
+        "model": {
+          "type": "string",
+          "example": "deluxe"
+        },
+        "productType": {
+          "type": "string",
+          "example": "ESPRESSO_MACHINE"
+        },
+        "waterLineCompatible": {
+          "type": "boolean",
+          "example": false
+        }
+      }
+    },
+    "Pod": {
+      "type": "object",
+      "properties": {
+        "productId": {
+          "type": "string",
+          "example": "Y+y5r"
+        },
+        "productType": {
+          "type": "string",
+          "example": "COFFEE_POD_SMALL"
+        },
+        "packSize": {
+          "type": "number",
+          "example": 60
+        },
+        "coffeeFlavor": {
+          "type": "string",
+          "example": "COFFEE_FLAVOR_HAZELNUT"
+        }
+      }
+    },
+    "Response": {
+      "type": "object",
+      "properties": {
+        "message": {
+          "type": "string",
+          "example": "message"
+        },
+        "data": {
+          "type": "object",
+          "properties": {}
+        }
+      }
+    }
+  }
+}
