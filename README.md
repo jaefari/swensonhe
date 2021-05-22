@@ -20,7 +20,7 @@ I have used some concepts and I have solid reasons for each of them that we can 
 
 * in the project description there was no mention of Authentication/Authorization or even CRUD operations, thus, I did not implement them.
 
-* This project is not uploaded to any repository
+* This project is not uploaded to any other repository
 
 
 * I did not understand the **cross-selling** that was mentioned in the documentation, and because I had no access to any person who can act as a business expert or product owner, I implemented it like the most basic recommendation, I might be wrong about the cross-selling concept.
