@@ -5,8 +5,6 @@ ___
 **Time used for the impelementation: roughly 10 hours, intense work**
 ___
 
-Of course, the person who reads this documentation is a technical person. So I feel free to describe many things. :)
-
 I have used some concepts and I have solid reasons for each of them that we can talk about. :)
 * First, I usually prevent using ORM, ODM. And this project was not an exception. I could simply use mongoose, or sequelize or typeORM or... But, we have lots to talk about why I prefer not to include them.
 
